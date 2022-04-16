@@ -9,6 +9,14 @@ class PageVisitList
     page_visit_count.sort_by { |_k, v| -v }
   end
 
+  def uniq
+    self.class.new(
+      @page_visits.uniq do |page_visit|
+        [page_visit.webpage, page_visit.device_ip]
+      end
+    )
+  end
+
   private
 
   def page_visit_count
