@@ -3,9 +3,9 @@ require_relative '../../lib/log_parser'
 RSpec.describe LogParser do
   subject { LogParser.new('spec/fixtures/test_log.txt') }
 
-  context '#ordered_list' do
+  context '#asc_page_visit_count' do
     it 'list the webpages from most visited to least visited' do
-      expect(subject.ordered_list).to eq(
+      expect(subject.asc_page_visit_count).to eq(
         [
           ['/help_page', 2],
           ['/home', 1],
