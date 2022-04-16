@@ -1,5 +1,3 @@
-require_relative '../../lib/page_visit'
-
 RSpec.describe PageVisit do
   subject { PageVisit.new(webpage: '/home', device_ip: '184.123.665.067') }
 

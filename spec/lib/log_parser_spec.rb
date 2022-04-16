@@ -1,5 +1,3 @@
-require_relative '../../lib/log_parser'
-
 RSpec.describe LogParser do
   subject { LogParser.new('spec/fixtures/test_log.txt') }
 
