@@ -10,11 +10,7 @@ class PageVisitList
   end
 
   def uniq
-    self.class.new(
-      @page_visits.uniq do |page_visit|
-        [page_visit.webpage, page_visit.device_ip]
-      end
-    )
+    self.class.new(@page_visits.uniq)
   end
 
   private
