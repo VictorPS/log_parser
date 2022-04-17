@@ -1,4 +1,15 @@
 class PageVisitList
+  class << self
+    def from_file(file_path)
+      new(
+        File.readlines(file_path).map do |line|
+          webpage, device_ip = line.split(' ')
+          PageVisit.new(webpage:, device_ip:)
+        end
+      )
+    end
+  end
+
   attr_reader :page_visits
 
   def initialize(page_visits = [])

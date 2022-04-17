@@ -33,4 +33,22 @@ RSpec.describe PageVisitList do
       )
     end
   end
+
+  context '.from_file' do
+    subject { PageVisitList.from_file('spec/fixtures/test_log.txt') }
+    let(:expected_page_visit_attributes) do
+      [
+        { webpage: '/help_page', device_ip: '126.318.035.038' },
+        { webpage: '/help_page', device_ip: '184.123.665.067' },
+        { webpage: '/home', device_ip: '184.123.665.067' },
+        { webpage: '/about/2', device_ip: '444.701.448.104' }
+      ]
+    end
+
+    it 'loads the page_visits from a log file' do
+      subject.page_visits.each_with_index do |page_visit, idx|
+        expect(page_visit).to have_attributes(expected_page_visit_attributes[idx])
+      end
+    end
+  end
 end
