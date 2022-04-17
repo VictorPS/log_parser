@@ -3,13 +3,13 @@ RSpec.describe LogParser do
     subject { LogParser.most_page_views('spec/fixtures/test_log.txt') }
 
     it 'list the webpages from most visited to least visited' do
-      expect(subject).to eq(
-        [
-          ['/help_page', 2],
-          ['/home', 1],
-          ['/about/2', 1]
-        ]
-      )
+      expect { subject }.to output(
+        <<~TEXT
+          /help_page 2 visits
+          /home 1 visit
+          /about/2 1 visit
+        TEXT
+      ).to_stdout
     end
   end
 end
