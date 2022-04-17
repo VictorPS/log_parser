@@ -1,9 +1,9 @@
 RSpec.describe LogParser do
-  subject { LogParser.new('spec/fixtures/test_log.txt') }
+  context '.most_page_views' do
+    subject { LogParser.most_page_views('spec/fixtures/test_log.txt') }
 
-  context '#asc_page_visit_count' do
     it 'list the webpages from most visited to least visited' do
-      expect(subject.asc_page_visit_count).to eq(
+      expect(subject).to eq(
         [
           ['/help_page', 2],
           ['/home', 1],
