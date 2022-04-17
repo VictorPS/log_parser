@@ -45,6 +45,7 @@ RSpec.describe PageVisitList do
     let(:expected_page_visit_attributes) do
       [
         { webpage: '/help_page', device_ip: '126.318.035.038' },
+        { webpage: '/help_page', device_ip: '126.318.035.038' },
         { webpage: '/help_page', device_ip: '184.123.665.067' },
         { webpage: '/home', device_ip: '184.123.665.067' },
         { webpage: '/about/2', device_ip: '444.701.448.104' }

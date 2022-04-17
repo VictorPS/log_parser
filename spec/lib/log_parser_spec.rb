@@ -5,7 +5,7 @@ RSpec.describe LogParser do
     it 'list the webpages from most visited to least visited' do
       expect { subject }.to output(
         <<~TEXT
-          /help_page 2 visits
+          /help_page 3 visits
           /home 1 visit
           /about/2 1 visit
         TEXT
