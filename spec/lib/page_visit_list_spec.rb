@@ -34,6 +34,12 @@ RSpec.describe PageVisitList do
     end
   end
 
+  context '#decorate' do
+    it 'returns a PageVisitListDecorator object' do
+      expect(subject.decorate).to be_a(PageVisitListDecorator)
+    end
+  end
+
   context '.from_file' do
     subject { PageVisitList.from_file('spec/fixtures/test_log.txt') }
     let(:expected_page_visit_attributes) do

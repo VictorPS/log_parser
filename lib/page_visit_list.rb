@@ -24,6 +24,10 @@ class PageVisitList
     self.class.new(@page_visits.uniq)
   end
 
+  def decorate
+    PageVisitListDecorator.new(self)
+  end
+
   private
 
   def page_visit_count
