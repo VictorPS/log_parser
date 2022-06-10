@@ -1,5 +1,5 @@
-RSpec.describe PageVisit do
-  subject { PageVisit.new(webpage: '/home', device_ip: '184.123.665.067') }
+RSpec.describe LogParser::PageVisit do
+  subject { LogParser::PageVisit.new(webpage: '/home', device_ip: '184.123.665.067') }
 
   it 'has a webpage' do
     expect(subject.webpage).to eq('/home')
@@ -11,7 +11,7 @@ RSpec.describe PageVisit do
 
   context '#eql?' do
     context 'another page_visit with different device_ip' do
-      let(:other_page_visit) { PageVisit.new(webpage: '/home', device_ip: '184.123.111.111') }
+      let(:other_page_visit) { LogParser::PageVisit.new(webpage: '/home', device_ip: '184.123.111.111') }
 
       it 'returns false' do
         expect(subject.eql?(other_page_visit)).to be_falsey
@@ -19,7 +19,7 @@ RSpec.describe PageVisit do
     end
 
     context 'another page_visit with different webpage' do
-      let(:other_page_visit) { PageVisit.new(webpage: '/other', device_ip: '184.123.665.067') }
+      let(:other_page_visit) { LogParser::PageVisit.new(webpage: '/other', device_ip: '184.123.665.067') }
 
       it 'returns false' do
         expect(subject.eql?(other_page_visit)).to be_falsey
