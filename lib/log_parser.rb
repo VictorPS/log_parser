@@ -1,3 +1,8 @@
+require_relative 'log_parser/page_visit_list'
+require_relative 'log_parser/page_visit'
+require_relative 'log_parser/string'
+require_relative 'log_parser/decorators/page_visit_list_decorator'
+
 class LogParser
   class << self
     def most_page_views(file_path)

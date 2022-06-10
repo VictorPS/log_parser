@@ -1,5 +1,4 @@
 require 'delegate'
-require_relative '../string'
 
 class LogParser
   class PageVisitListDecorator < SimpleDelegator

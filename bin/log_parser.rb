@@ -8,11 +8,8 @@
 ## Options:
 ### --uniq - Ignores duplicated visits
 
+require_relative '../lib/log_parser'
 require 'optparse'
-
-Dir[File.join(__dir__, '../lib/**/*.rb')].each do |file|
-  require file
-end
 
 options = {}
 
