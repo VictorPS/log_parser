@@ -10,19 +10,7 @@ class LogParser
     def parse(arguments = [])
       options = {}
 
-      opt_parser = OptionParser.new do |opts|
-        opts.banner = 'Usage: bin/log_parser.rb [options] [file_path]'
-        opts.on('--uniq', 'Ignores duplicated visits') do
-          options[:uniq] = true
-        end
-
-        opts.on('-h', '--help', 'Prints this help') do
-          puts opts
-          exit
-        end
-      end
-
-      file_path = opt_parser.parse!(arguments).first
+      file_path = option_parser.parse!(arguments).first
 
       if file_path.nil?
         puts 'You need to specify a file name'
@@ -47,6 +35,22 @@ class LogParser
                         .uniq
                         .decorate
                         .asc_page_visit_count
+    end
+
+    private
+
+    def option_parser
+      @option_parser ||= OptionParser.new do |opts|
+        opts.banner = 'Usage: bin/log_parser.rb [options] [file_path]'
+        opts.on('--uniq', 'Ignores duplicated visits') do
+          options[:uniq] = true
+        end
+
+        opts.on('-h', '--help', 'Prints this help') do
+          puts opts
+          exit
+        end
+      end
     end
   end
 end
