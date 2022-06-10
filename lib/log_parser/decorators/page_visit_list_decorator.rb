@@ -1,7 +1,10 @@
 require 'delegate'
+require_relative '../string'
 
 class LogParser
   class PageVisitListDecorator < SimpleDelegator
+    using LogParser::String
+
     attr_reader :page_visit_list
 
     def initialize(page_visit_list)
@@ -11,16 +14,8 @@ class LogParser
 
     def asc_page_visit_count
       super.map do |webpage, count|
-        "#{webpage} #{count} #{pluralize_visit(count)}"
+        "#{webpage} #{count} #{'visit'.pluralize(count)}"
       end
-    end
-
-    private
-
-    def pluralize_visit(count)
-      return 'visit' if count == 1
-
-      'visits'
     end
   end
 end
